@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storefront</title>
+    <link rel="stylesheet" href="styling.css">
+    <style>
+        /*styling the product grid to be responsive*/
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Styling the cart pop up window */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-content h1 {
+            margin-top: 0;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!--Making the navigation bar-->
+        <nav class="navbar"> 
+            <div class="logo">
+                <img src="logo4.PNG" alt="Store Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/cart" id="cart-btn">Cart</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!--making a container div for the heading of the page-->
+    <div class="container">
+        <div class="heading">
+            <h1>Welcome to Our Store</h1>
+            <p>Browse through our collection of products.</p>
+        </div>
+        
+        <!--Main div for all the products-->
+        <div class="product-grid">
+            <!--individual products divs-->
+            <div class="product">
+                <img src="https://m.media-amazon.com/images/I/71VuoFEeWNL.jpg" alt="Product 1">
+                <h3>Heinz Ketchup</h3>
+                <p>HEINZ KETCHUP: One 32 oz bottle of Heinz Organic Tomato Ketchup
+                    THICK & RICH: Heinz Organic Tomato Ketchup has the same thick
+                     and rich taste of classic Heinz ketchup <br> 15.99 AED</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="https://m.media-amazon.com/images/I/71lsnyX+M0L._AC_UF1000,1000_QL80_.jpg" alt="Product 2">
+                <h3>Lebron James funko pop</h3>
+                <p>This Stylish Collectable Action Figure Measures Approximately
+                     10 Inches Tall And Comes Packaged In A Window Display Box.
+                     <br> 89.00 AED</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="https://balenciaga.dam.kering.com/m/65996dbebdbbd83c/Medium-808911TMS021000_F.jpg?v=1" alt="Product 3">
+                <h3>Balenciaga Bomber Leather Jacket in Black</h3>
+                <p>Bomber Leather Jacket in black soft lambskin
+                    Garde-Robe is made up of wardrobe staples in elevated cuts, sharp finishing, and luxe materials
+                     without any branding other than bold silhouettes
+                     and precise tailoring with minimalist construction techniques. $8,790</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="https://m.media-amazon.com/images/I/71iMu8X6YsL.jpg" alt="Product 4">
+                <h3>American Garden peanut butter</h3>
+                <p>Deliciously smooth and creamy,
+                     our American Garden Creamy Peanut Butter 454g delivers an 
+                     authentic American taste. <br>20.00 AED</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSK88a3yMrTeTeq9k6KpZLfhk47DaQjUcli38RWDoWoCCKvWd7XEXmULOWPtLlmzaOA-Mg3NvIv-tQwidwefMKjDeEpJ1JmoAQWYDaKjKtNIqW-Y4nG7jXi" alt="Product 4">
+                <h3>Pepsi</h3>
+                <p>Best seller of the year.<br> 15.00 Aed</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="https://images.collectingcars.com/069375/15-10-24-JJBB-04.jpg?w=1263&fit=fillmax&crop=edges&auto=format,compress&cs=srgb&q=85" alt="Product 4">
+                <h3>Alfa Romeo 8c</h3>
+                <p>The 2009 Alfa Romeo 8C Competizione listed for sale in Dubai represents a rare opportunity to own a piece of automotive history. 
+                    Known for its timeless design and exceptional performance, the 8C Competizione is a limited-production sports car with only 500 units
+                     produced globally, making it highly collectible. $305,000</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="https://m.media-amazon.com/images/I/814eL5xV5GL.jpg" alt="Product 4">
+                <h3>Chips Ahoy Mini</h3>
+                <p>Scrumptious CHIPS AHOY! cookies are classics. Loaded with real chocolate chips, these delectable treats have been a household favorite since 1963. $5</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="https://m.media-amazon.com/images/I/61bMJdgeryL._AC_UF1000,1000_QL80_.jpg" alt="Product 4">
+                <h3>Iphone 16 Pro Max</h3>
+                <p>STUNNING TITANIUM DESIGN—iPhone 16 Pro Max has a strong and 
+                    light titanium design with a larger 6.9-inch Super Retina XDR display.
+                     It’s remarkably durable with the latest-generation Ceramic Shield
+                      material that’s 2x tougher than any smartphone glass. 4,590.00 AED</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Making a cart that will pop up on the main window-->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Your Shopping Cart</h1>
+            <ul id="cart-items">
+            <!--making a empty list for the products to appear in when added to cart-->
+            </ul>
+            <button id="checkout-btn">Proceed to Checkout</button> <!--Proceed to checkout button-->
+        </div>
+    </div>
+
+    <!--Making a footer-->
+    <footer>
+        <div class="footer-container">
+            <!--About us section of the web page-->
+            <div class="footer-col">
+                <h4>About Us</h4>
+                <p>We are a leading online store offering the best products at affordable prices. Quality and customer satisfaction are our top priorities.</p>
+            </div>
+            <!--Making the quick links section of the page-->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/cart">Cart</a></li>
+                    <li><a href="/about">About Us</a></li>
+                </ul>
+            </div>
+            <!--Making the Cotact section of the page-->
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>Email: support@store.com</li>
+                    <li>Phone: +1 (800) 123-4567</li>
+                    <li>Address: 123 Store Street, City, Country</li>
+                </ul>
+            </div>
+            <!--Making the social links section of the page-->
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <ul class="social-links">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Store. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        //Getting the cart and making sure its an empty array
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+// Making a function to display the cart items 
+function displayCart() {
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = ''; s // emptying the cart
+
+    // using if statements to show a message if cart is empty
+    if (cart.length === 0) {
+        cartItems.innerHTML = '<li>Your cart is empty</li>';
+    } else {
+        // Displaying all of the items in the cart 
+        cart.forEach((item, index) => {
+            const li = document.createElement('li');
+            li.style.display = "flex";
+            li.style.justifyContent = "space-between";
+            li.style.alignItems = "center";
+
+            const itemText = document.createElement('span');
+            itemText.textContent = item;
+
+            // Making a remove button to remove items from the cart 
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            removeButton.style.backgroundColor = '#ff3c78';
+            removeButton.style.color = 'white';
+            removeButton.style.border = 'none';
+            removeButton.style.padding = '5px 10px';
+            removeButton.style.borderRadius = '5px';
+            removeButton.style.cursor = 'pointer';
+
+            //Removing the item when button is pressed and refreshing cart 
+            removeButton.addEventListener('click', function () {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                displayCart();
+            });
+
+            li.appendChild(itemText);
+            li.appendChild(removeButton);
+            cartItems.appendChild(li);
+        });
+    }
+}
+
+// Making the cart button in the header show the cart when pressed
+document.getElementById('cart-btn').addEventListener('click', function (event) {
+    event.preventDefault();
+    document.getElementById('cart-modal').style.display = "block";
+    displayCart();
+});
+
+//Closing the cart when pressing the close button 
+document.querySelector('.close').addEventListener('click', function () {
+    document.getElementById('cart-modal').style.display = "none";
+});
+
+//Closing the cart when clicking outside of the cart page
+window.addEventListener('click', function (event) {
+    const modal = document.getElementById('cart-modal');
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+//Adding functionality to the add to cart button under all the products
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function () {
+        const productName = this.previousElementSibling.previousElementSibling.textContent;
+        cart.push(productName); //Pushing the item into the cart 
+        localStorage.setItem('cart', JSON.stringify(cart)); //Updating the cart after adding the item 
+        alert(`${productName} has been added to your cart!`);
+    });
+});
+
+//Using if statements to show a message when you click proceed to check out 
+document.getElementById('checkout-btn').addEventListener('click', function () {
+    if (cart.length > 0) {  //Showing a message saying proceeding to checkout 
+        alert('Proceeding to checkout');
+    } else {  //Showing a message saying your cart is empty when there's no items in the cart 
+        alert('Your cart is empty!');
+    }
+});
+
+    </script>
+</body>
+</html>
